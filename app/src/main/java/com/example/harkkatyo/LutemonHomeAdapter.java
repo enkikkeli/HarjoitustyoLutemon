@@ -1,7 +1,5 @@
 package com.example.harkkatyo;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -14,35 +12,34 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class LutemonCheckAdapter extends RecyclerView.Adapter<LutemonCheckHolder> {
+public class LutemonHomeAdapter extends RecyclerView.Adapter<LutemonHomeHolder> {
 
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
 
-    public LutemonCheckAdapter(Context context, ArrayList<Lutemon> lutemons) {
+    public LutemonHomeAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = new ArrayList<>(lutemons);
     }
 
     @NonNull
     @Override
-    public LutemonCheckHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LutemonCheckHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_check, parent, false));
+    public LutemonHomeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new LutemonHomeHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_home, parent, false));
     }
 
-    public void onBindViewHolder(@NonNull LutemonCheckHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LutemonHomeHolder holder, int position) {
         Lutemon lutemon = lutemons.get(position);
         holder.lutemonName.setText(lutemon.getName() + " (" + lutemon.getColor() + ")");
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
-        holder.moveHome.setOnClickListener(View -> {
+        holder.moveBattle.setOnClickListener(View -> {
             int pos = holder.getAdapterPosition();
-            HomeStorage.getInstance().addLutemon(lutemons.get(pos));
-            BattleStorage.getInstance().getLutemons().remove(pos);
+            BattleStorage.getInstance().addLutemon(lutemons.get(pos));
+            HomeStorage.getInstance().getLutemons().remove(pos);
             lutemons.remove(pos);
             notifyItemRemoved(pos);
             notifyDataSetChanged();
-
         });
     }
     @Override

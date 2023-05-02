@@ -6,21 +6,18 @@ public class Lutemon implements Serializable {
     protected String name;
     protected int attack;
     protected int defence;
-    protected int experience;
     protected int health;
     protected int maxHealth;
     protected  int image;
 
-
     protected String lutemonColor;
 
 
-    public Lutemon(String name, String lutemonColor, int attack, int defence, int experience, int health, int maxHealth) {
+    public Lutemon(String name, String lutemonColor, int attack, int defence, int health, int maxHealth) {
         this.name = name;
         this.lutemonColor = lutemonColor;
         this.attack = attack;
         this.defence = defence;
-        this.experience = experience;
         this.health = health;
         this.maxHealth = maxHealth;
     }
@@ -42,9 +39,6 @@ public class Lutemon implements Serializable {
         return defence;
     }
 
-    public int getExperience() {
-        return experience;
-    }
 
     public void setHealth(int health) {
         this.health = health;
@@ -61,6 +55,5 @@ public class Lutemon implements Serializable {
     public int getImage() {
         return image;
     }
-
 
 }

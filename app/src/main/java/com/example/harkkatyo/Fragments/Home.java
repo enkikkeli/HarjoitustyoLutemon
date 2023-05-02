@@ -12,7 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.harkkatyo.HomeStorage;
-import com.example.harkkatyo.LutemonCheckAdapter;
+import com.example.harkkatyo.LutemonHomeAdapter;
 import com.example.harkkatyo.R;
 
 
@@ -23,10 +23,10 @@ public class Home extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.check_lutemons, container, false);
-        recyclerView = view.findViewById(R.id.rv_LutemonCheck);
+        View view = inflater.inflate(R.layout.home_lutemons, container, false);
+        recyclerView = view.findViewById(R.id.rv_LutemonHome);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(new LutemonCheckAdapter(getActivity().getApplicationContext(), HomeStorage.getInstance().getLutemons()));
+        recyclerView.setAdapter(new LutemonHomeAdapter(getActivity().getApplicationContext(), HomeStorage.getInstance().getLutemons()));
         view.invalidate();
         return view;
     }

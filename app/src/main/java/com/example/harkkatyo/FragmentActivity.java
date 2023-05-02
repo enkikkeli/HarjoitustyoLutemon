@@ -2,54 +2,47 @@ package com.example.harkkatyo;
 
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager2.widget.ViewPager2;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.View;
 
-import com.google.android.material.tabs.TabLayout;
+import com.example.harkkatyo.Fragments.Battle;
+import com.example.harkkatyo.Fragments.Graveyard;
+import com.example.harkkatyo.Fragments.Home;
 
 public class FragmentActivity extends AppCompatActivity {
 
-    public void refrechActivity() {
-        recreate();
-    }
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
+        fragment = new Home();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
+    }
 
-        TabLayout tabLayout = findViewById(R.id.tabArea);
-        ViewPager2 fragmentArea = findViewById(R.id.fragmentArea);
-        TabPagerAdapter tabPagerAdapter = new TabPagerAdapter(this);
-        fragmentArea.setAdapter(tabPagerAdapter);
+    public void changeToHome(View view) {
+        fragment = new Home();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
+    }
 
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                fragmentArea.setCurrentItem(tab.getPosition());
+    public void changeToBattle(View view) {
+        fragment = new Battle();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
+    }
 
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-        fragmentArea.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
-
-            @Override
-            public void onPageSelected(int position) {
-                super.onPageSelected(position);
-                tabLayout.getTabAt(position).select();
-
-            }
-        });
+    public void changeToGraveyard(View view) {
+        fragment = new Graveyard();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame, fragment)
+                .commit();
     }
 }

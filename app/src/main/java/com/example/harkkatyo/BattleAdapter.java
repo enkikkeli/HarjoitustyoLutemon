@@ -18,11 +18,13 @@ public class BattleAdapter extends RecyclerView.Adapter<BattleHolder> {
 
     private Context context;
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
+    private int position;
 
 
     public BattleAdapter(Context context, ArrayList<Lutemon> lutemons) {
         this.context = context;
         this.lutemons = new ArrayList<>(lutemons);
+        this.position = position;
     }
 
     @NonNull

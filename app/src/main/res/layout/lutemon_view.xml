@@ -47,11 +47,5 @@
             android:layout_height="wrap_content"
             android:text="Elämä:" />
 
-        <TextView
-            android:id="@+id/Experience"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Kokemus:" />
-
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

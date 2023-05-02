@@ -34,7 +34,6 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
         holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getColor() + ")");
         holder.lutemonAttack.setText("Hyökkäys: " + String.valueOf(lutemons.get(position).getAttack()));
         holder.lutemonDefence.setText("Puolustus: " + String.valueOf(lutemons.get(position).getDefence()));
-        holder.lutemonExperience.setText("Kokemus: "+ String.valueOf(lutemons.get(position).getExperience()));
         holder.lutemonHealth.setText("Elämä: " + String.valueOf(lutemons.get(position).getHealth()) + "/" + String.valueOf(lutemons.get(position).getMaxHealth()));
         holder.lutemonImage.setImageResource(lutemons.get(position).getImage());
     }
@@ -43,4 +42,10 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder>{
     public int getItemCount(){
         return lutemons.size();
     }
+
+    /*public void setLutemons(ArrayList<Lutemon> lutemons) {
+        this.lutemons = lutemons;
+        notifyDataSetChanged();
+    }*/
+
 }

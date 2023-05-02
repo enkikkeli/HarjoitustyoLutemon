@@ -38,11 +38,11 @@
 
 
         <Button
-            android:id="@+id/moveHome"
+            android:id="@+id/moveBattle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Kotiin" />
+            android:text="Areenalle" />
 
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>
